@@ -12,19 +12,39 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.black87,
         body: SafeArea(
-          child: Center(
-            child: FlatButton(
-              onPressed: (){
-                final player = AudioCache();
-                player.loop('note1.wav');
-              },
-              child: Text("Click Me"),
-            ),
+
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              keyButton(Colors.red,1),
+              keyButton(Colors.pink,2),
+              keyButton(Colors.redAccent,3),
+              keyButton(Colors.yellow,4),
+              keyButton(Colors.brown,5),
+              keyButton(Colors.blueAccent,6),
+              keyButton(Colors.purple,7),
+            ],
           ),
         ),
       ),
     );
   }
+
+
+  Widget keyButton(Color colors, int soundNUmber){
+    return Expanded(
+      child: FlatButton(
+        color: colors,
+        child: Text(''),
+        onPressed: (){
+          final player = AudioCache();
+          player.play('note$soundNUmber.wav');
+        },
+      ),
+    );
+  }
 }
+
+
