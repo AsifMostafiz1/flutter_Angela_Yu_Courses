@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              keyButton(Colors.red,1),
-              keyButton(Colors.pink,2),
-              keyButton(Colors.redAccent,3),
+              keyButton(Colors.red,8),
+              keyButton(Colors.pink,8),
+              keyButton(Colors.redAccent,8),
               keyButton(Colors.yellow,4),
               keyButton(Colors.brown,5),
               keyButton(Colors.blueAccent,6),
