@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bmi_app/calculator_brain.dart';
 import 'package:flutter_bmi_app/screens/result_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/reusbale_card.dart';
@@ -214,7 +215,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           BottomButton(onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultPage()));
+            CalculatorBrain  calc = CalculatorBrain(height: sliderValue,weight: weight);
+
+
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultPage(
+              bmiResult: calc.calculateBMI(),
+              resultText: calc.getResult(),
+              interpretation: calc.getInterpretation(),
+            )));
           },
             buttonText: "CALCULATE",
           )

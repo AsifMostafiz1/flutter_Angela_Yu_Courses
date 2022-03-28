@@ -5,7 +5,12 @@ import 'package:flutter_bmi_app/components/constants.dart';
 import 'package:flutter_bmi_app/components/reusbale_card.dart';
 
 class ResultPage extends StatefulWidget {
-  const ResultPage({Key key}) : super(key: key);
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+
+  ResultPage({@ required this.bmiResult,@required this.resultText,@required this.interpretation});
 
   @override
   _ResultPageState createState() => _ResultPageState();
@@ -38,11 +43,11 @@ class _ResultPageState extends State<ResultPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
 
-                    Text("Normal",style: TextStyle(color: Colors.green,fontSize: 25),),
+                    Text(widget.resultText,style: TextStyle(color: Colors.green,fontSize: 25),),
 
-                    Text('23.5',style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold),),
+                    Text(widget.bmiResult,style: TextStyle(fontSize: 80,fontWeight: FontWeight.bold),),
 
-                    Text('Your Bmi is normal, You can eat more!!',style: TextStyle(fontSize: 20),textAlign: TextAlign.center,)
+                    Text(widget.interpretation,style: TextStyle(fontSize: 20),textAlign: TextAlign.center,)
 
                   ],
                 ),
